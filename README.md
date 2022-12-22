@@ -7,6 +7,6 @@ This code is the Pytorch implementation of the paper "Training Deep Nets with Su
 
 ## Run
 You can run MNIST experiments by running following command. 
-'''
+```
 python mnist_full.py
-'''
+```
