@@ -1,6 +1,6 @@
 # Training Deep Nets with Sublinear Memory Cost
 ![Figure 1](image/overview.png)
-> Training very deep neural networks requires a lot of memory. Using the tools in this package, developed jointly by Tim Salimans and Yaroslav Bulatov, you can trade off some of this memory usage with computation to make your model fit into memory more easily. For feed-forward models we were able to fit more than 10x larger models onto our GPU, at only a 20% increase in computation time.
+> Computation graph and possible memory allocation plan of a two layer fully connected neural network training procedure. Each node represents an operation and each edge represents a dependency between the operations. The nodes with the same color share the memory to store output or back-propagated gradient in each operator. To make the graph more clearly, we omit the weights and their output gradient nodes from the graph and assume that the gradient of weights are also calculated during backward operations. We also annotate two places where the in-place and sharing strategies are used.
 
 This code is the Pytorch implementation of the paper [Training Deep Nets with Sublinear Memory Cost](https://arxiv.org/pdf/1604.06174.pdf).
 
