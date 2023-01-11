@@ -58,13 +58,10 @@ test_dataloader = torch.utils.data.DataLoader(
     batch_size = num_batch,
     shuffle = True)
 
-#----------------------------------------------------------
-# ニューラルネットワークモデルの定義
 class Net(nn.Module):
     def __init__(self, input_size, output_size):
         super(Net, self).__init__()
 
-        # 各クラスのインスタンス（入出力サイズなどの設定）
         self.fc1 = nn.Linear(input_size, 50, bias=False)
         self.fc2 = nn.Linear(50, 120, bias=False)
         self.fc3 = nn.Linear(120, 50, bias=False)
@@ -86,20 +83,10 @@ class Net(nn.Module):
             x = self.net(x)          
         return x
 
-#----------------------------------------------------------
-# ニューラルネットワークの生成
+
 model = Net(image_size, 10).to(device)
-
-#----------------------------------------------------------
-# 損失関数の設定
 criterion = nn.CrossEntropyLoss() 
-
-#----------------------------------------------------------
-# 最適化手法の設定
 optimizer = torch.optim.Adam(model.parameters(), lr = learning_rate) 
-
-#----------------------------------------------------------
-# 学習
 model.train()  # モデルを訓練モードにする
 
 for epoch in range(num_epochs): # 学習を繰り返し行う
